@@ -26,14 +26,22 @@ public class Main {
 			 * 
 			 * for (String countryCode : countryCodes) { System.out.println(countryCode); }
 			 */
-	    	City city = new City();
-	    	city.setName("Honaz");
-	    	city.setCountryCode("TUR");
-	    	city.setDistrict("Ege");
-	    	city.setPopulation(2000);
 	    	
+//	    	//INSERT
+//	    	City city = new City();
+//	    	city.setName("Honaz");
+//	    	city.setCountryCode("TUR");
+//	    	city.setDistrict("Ege");
+//	    	city.setPopulation(2000);
+//	    	entityManager.persist(city);
+	    	
+	    	//UPDATE
+	    	City city = entityManager.find(City.class, 4000);
+	    	city.setPopulation(2000000);
 	    	entityManager.persist(city);
 	    	
+	    	
+	    	//System.out.println(city.getDistrict());
 	        entityManager.getTransaction().commit();
 	    }finally {
 	    	//entityManager.close();
