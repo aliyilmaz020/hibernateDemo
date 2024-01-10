@@ -36,10 +36,15 @@ public class Main {
 //	    	entityManager.persist(city);
 	    	
 	    	//UPDATE
-	    	City city = entityManager.find(City.class, 4000);
-	    	city.setPopulation(2000000);
-	    	entityManager.persist(city);
+//	    	City city = entityManager.find(City.class, 4000);
+//	    	city.setPopulation(2000000);
+//	    	entityManager.persist(city);
 	    	
+	    	// CRUD Create Read Update Delete
+	    	
+	    	//DELETE
+	    	City city = entityManager.find(City.class, 4104);
+	    	entityManager.remove(city);
 	    	
 	    	//System.out.println(city.getDistrict());
 	        entityManager.getTransaction().commit();
