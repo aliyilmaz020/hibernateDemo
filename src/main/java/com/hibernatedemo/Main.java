@@ -17,6 +17,7 @@ public class Main {
 	    	//"from City c where c.name LIKE '%kar%'"
 	    	// ASC-Ascending
 	    	// DESC-Descending
+	    	// "from City c Order By c.name DESC"
 	        List<City> cities = entityManager.
 	        		createQuery("from City c Order By c.name DESC", City.class).getResultList();
 
