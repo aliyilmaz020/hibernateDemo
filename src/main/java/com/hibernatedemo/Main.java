@@ -8,7 +8,8 @@ import jakarta.persistence.*;
 public class Main {
 	public static void main(String[] args) {
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("MyPersistence");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        //Unit of Work
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
 	    try {
 	    	entityManager.getTransaction().begin();
 	    	//HQL --> Hibernate Query Lang
@@ -18,12 +19,21 @@ public class Main {
 	    	// ASC-Ascending
 	    	// DESC-Descending
 	    	// "from City c Order By c.name DESC"
-	        List<String> countryCodes = entityManager.
-	        		createQuery("select c.countryCode from City c Group By c.countryCode").getResultList();
-
-	        for (String countryCode : countryCodes) {
-	            System.out.println(countryCode);
-	        }
+			/*
+			 * List<String> countryCodes = entityManager.
+			 * createQuery("select c.countryCode from City c Group By c.countryCode").
+			 * getResultList();
+			 * 
+			 * for (String countryCode : countryCodes) { System.out.println(countryCode); }
+			 */
+	    	City city = new City();
+	    	city.setName("Honaz");
+	    	city.setCountryCode("TUR");
+	    	city.setDistrict("Ege");
+	    	city.setPopulation(2000);
+	    	
+	    	entityManager.persist(city);
+	    	
 	        entityManager.getTransaction().commit();
 	    }finally {
 	    	//entityManager.close();
