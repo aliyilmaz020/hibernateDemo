@@ -18,11 +18,11 @@ public class Main {
 	    	// ASC-Ascending
 	    	// DESC-Descending
 	    	// "from City c Order By c.name DESC"
-	        List<City> cities = entityManager.
-	        		createQuery("from City c Order By c.name DESC", City.class).getResultList();
+	        List<String> countryCodes = entityManager.
+	        		createQuery("select c.countryCode from City c Group By c.countryCode").getResultList();
 
-	        for (City city : cities) {
-	            System.out.println(city.getName() + ": " + city.getPopulation());
+	        for (String countryCode : countryCodes) {
+	            System.out.println(countryCode);
 	        }
 	        entityManager.getTransaction().commit();
 	    }finally {
