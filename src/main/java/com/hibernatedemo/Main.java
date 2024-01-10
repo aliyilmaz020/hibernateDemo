@@ -11,12 +11,14 @@ public class Main {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 	    try {
 	    	entityManager.getTransaction().begin();
-	    	
+	    	//HQL --> Hibernate Query Lang
 	    	//Select * from city
 	    	//"from City c where c.countryCode='TUR' AND c.district='Istanbul'"
 	    	//"from City c where c.name LIKE '%kar%'"
+	    	// ASC-Ascending
+	    	// DESC-Descending
 	        List<City> cities = entityManager.
-	        		createQuery("from City c where c.name LIKE '%kar%'", City.class).getResultList();
+	        		createQuery("from City c Order By c.name DESC", City.class).getResultList();
 
 	        for (City city : cities) {
 	            System.out.println(city.getName() + ": " + city.getPopulation());
