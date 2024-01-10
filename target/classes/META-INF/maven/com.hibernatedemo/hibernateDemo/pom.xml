@@ -29,7 +29,16 @@
     <artifactId>hibernate-core-jakarta</artifactId>
     <version>5.6.15.Final</version>
 </dependency>
-
+<dependency>
+    <groupId>org.n52.sensorweb-server.sos</groupId>
+    <artifactId>sos-hibernate-session-factory</artifactId>
+    <version>6.0.1</version>
+</dependency>
+<dependency>
+    <groupId>org.opentcs</groupId>
+    <artifactId>opentcs-impl-configuration-cfg4j</artifactId>
+    <version>5.12.0</version>
+</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
